@@ -8,5 +8,13 @@
       <th></th>
     </tr>
   </thead>
-  <tbody></tbody>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to "Show", user_path(user.id) %></td>
+      </tr>
+      <% end %>
+  </tbody>
 </table>

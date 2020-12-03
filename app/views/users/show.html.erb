@@ -3,15 +3,19 @@
 <p><%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
 
 <table class="table">
-  <tbody>
+  <thead>
     <tr>
       <th>name</th>
-      <th>たかこ</th>
+      <th><%= current_user.name %></th>
     </tr>
     <tr>
       <th>introduction</th>
-      <th>中身</th>
+      <th><%= current_user.introduction %></th>
     </tr>
+  </thead>
+
+  <tbody>
+
   </tbody>
 </table>
 
