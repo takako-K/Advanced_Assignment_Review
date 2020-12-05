@@ -1,0 +1,47 @@
+<h1>User info</h1>
+
+<p><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>name</th>
+      <th><%= current_user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= current_user.introduction %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+  </tbody>
+</table>
+
+<% if user.id == current_user.id %>
+    <p><%= link_to "Edit", edit_user_path(user) %></p>
+  <% end %>
+
+
+<h1>New book</h1>
+
+    <%= form_with model: book, url:'/books', local:true do |f| %>
+      <h2>Title</h2>
+      <%= f.text_field :title %>
+      <h2>Opinion</h2>
+      <%= f.text_area :body %>
+      <%= f.submit 'Create Book' %>
+    <% end %>
+
+    <% if book.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <h2><%= pluralize(book.errors.count, "error")%>
+      prohibited this book from being saved:</h2>
+      <ul>
+        <% book.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
