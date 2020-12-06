@@ -25,40 +25,52 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
           </div>
-
-
-
     <% if user_signed_in? %>
       <li class="nav-item">
         <%= link_to user_path(current_user) do %>
           <i class="fas fa-home"></i>Home
         <% end %>
       </li>
-      <li>
-        <%= link_to "Users", users_path %>
+      <li class="nav-item">
+        <%= link_to users_path do %>
+          <i class="fas fa-users"></i>Users
+        <% end %>
       </li>
-      <li>
-        <%= link_to "Books", books_path  %>
+      <li class="nav-item">
+        <%= link_to books_path do %>
+          <i class="fas fa-book-open"></i>Books
+        <% end %>
       </li>
-      <li>
-        <%= link_to "logout", destroy_user_session_path, method: :delete %>
+      <li class="nav-item">
+        <%= link_to destroy_user_session_path, method: :delete do %>
+          <i class="fas fa-sign-out-alt"></i>logout
+        <% end %>
       </li>
-
     <% else %>
-      <li>
-        <%= link_to "Home", root_path %>
+      <li class="nav-item">
+        <%= link_to root_path do %>
+          <i class="fas fa-home"></i>Home
+        <% end %>
       </li>
-      <li>
-        <%= link_to "About", homes_about_path %>
+      <li class="nav-item">
+        <%= link_to homes_about_path do %>
+          <i class="fas fa-link"></i>About
+        <% end %>
       </li>
-      <li>
-        <%= link_to "sign up", new_user_registration_path %>
+      <li class="nav-item">
+        <%= link_to new_user_registration_path do %>
+          <i class="fas fa-user-plus"></i>sign up
+        <% end %>
       </li>
-      <li>
-        <%= link_to "login", new_user_session_path  %>
+      <li class="nav-item">
+        <%= link_to new_user_session_path do %>
+          <i class="fas fa-sign-in-alt"></i>login
+        <% end %>
       </li>
     <% end %>
-
+          </ul>
+        </div>
+      </nav>
     </header>
 
     <%= yield %>
