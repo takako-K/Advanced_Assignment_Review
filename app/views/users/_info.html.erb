@@ -3,36 +3,21 @@
     <div class="col-md-3">
       <h1>User info</h1>
         <p><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
-
-
-    </div>
-  </div>
-</div>
-
-
-<h1>User info</h1>
-
-<p><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></p>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>name</th>
-      <th><%= user.name %></th>
-    </tr>
-    <tr>
-      <th>introduction</th>
-      <th><%= user.introduction %></th>
-    </tr>
-  </thead>
-
-  <tbody>
-
-  </tbody>
-</table>
-
-<% if user.id == current_user.id %>
-    <p><%= link_to "Edit", edit_user_path(user) %></p>
-  <% end %>
-
-
+          <table class="table">
+            <tbody>
+              <tr>
+                <th>name</th>
+                <th><%= user.name %></th>
+              </tr>
+              <tr>
+                <th>introduction</th>
+                <th><%= user.introduction %></th>
+              </tr>
+            </tbody>
+          </table>
+          <div class="row">
+            <% if user.id == current_user.id %>
+              <p><%= link_to "Edit", edit_user_path(user) %></p>
+            <% end %>
+          </div>
+        </div>
