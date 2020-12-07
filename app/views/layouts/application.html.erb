@@ -25,47 +25,47 @@
             <ul class="navbar-nav ml-auto">
           </div>
     <% if user_signed_in? %>
-      <li class="nav-item">
+      <ul class="nav-item">
         <%= link_to user_path(current_user) do %>
           <i class="fas fa-home"></i>Home
         <% end %>
-      </li>
-      <li class="nav-item">
+      </ul>
+      <ul class="nav-item">
         <%= link_to users_path do %>
           <i class="fas fa-users"></i>Users
         <% end %>
-      </li>
-      <li class="nav-item">
+      </ul>
+      <ul class="nav-item">
         <%= link_to books_path do %>
           <i class="fas fa-book-open"></i>Books
         <% end %>
-      </li>
-      <li class="nav-item">
+      </ul>
+      <ul class="nav-item">
         <%= link_to destroy_user_session_path, method: :delete do %>
           <i class="fas fa-sign-out-alt"></i>logout
         <% end %>
-      </li>
+      </ul>
     <% else %>
-      <li class="nav-item">
+      <ul class="nav-item">
         <%= link_to root_path do %>
           <i class="fas fa-home"></i>Home
         <% end %>
-      </li>
-      <li class="nav-item">
+      </ul>
+      <ul class="nav-item">
         <%= link_to homes_about_path do %>
           <i class="fas fa-link"></i>About
         <% end %>
-      </li>
-      <li class="nav-item">
+      </ul>
+      <ul class="nav-item">
         <%= link_to new_user_registration_path do %>
           <i class="fas fa-user-plus"></i>sign up
         <% end %>
-      </li>
-      <li class="nav-item">
+      </ul>
+      <ul class="nav-item">
         <%= link_to new_user_session_path do %>
           <i class="fas fa-sign-in-alt"></i>login
         <% end %>
-      </li>
+      </ul>
     <% end %>
           </ul>
         </div>
