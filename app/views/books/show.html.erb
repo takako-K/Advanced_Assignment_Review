@@ -9,7 +9,7 @@
       <%= render 'books/newform', book: @book_new %>
     </div>
 
-    <div class="col-md-8 offset-1">
+    <div class="col-md-8 offset-md-1">
       <h1>Book detail</h1>
         <table class="table">
           <tbody>
@@ -19,7 +19,7 @@
                 <br><%= link_to @book.user.name, user_path(@book.user.id) %>
               </td>
               <td>
-                <%= @book.title %>
+                <%= link_to @book.title, book_path(@book.id) %>
               </td>
               <td>
                 <%= @book.body %>

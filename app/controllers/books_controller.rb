@@ -17,7 +17,7 @@ class BooksController < ApplicationController
     if @book.user == current_user
       render "edit"
     else
-      redirect_to root_path
+      redirect_to books_path
     end
   end
 
@@ -28,7 +28,8 @@ class BooksController < ApplicationController
     if @book.save
     redirect_to book_path(@book.id), notice: "Book was successfully created."
     else
-    render action: :index
+      @user = current_user
+      render action: :index
     end
   end
 

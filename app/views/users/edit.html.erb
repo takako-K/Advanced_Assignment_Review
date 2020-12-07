@@ -1,6 +1,9 @@
-<% if flash[:notice] %>
-  <p><%= flash[:notice] %></p>
+<% if @user.errors.any? %>
+  <%= @user.errors.count %>error prohibited this obj from being saved:
+  <% @user.errors.full_messages.each do |message| %>
+    <%= message %>
   <% end %>
+<% end %>
 
 <div class="container">
   <div class="row">
