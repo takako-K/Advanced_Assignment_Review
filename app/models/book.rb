@@ -8,5 +8,7 @@ class Book < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+  # コメント機能
+  has_many :book_comments, dependent: :destroy
 
 end
