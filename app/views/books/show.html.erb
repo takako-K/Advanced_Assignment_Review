@@ -40,6 +40,11 @@
                   <% end %>
               </td>
               <td>
+                <p>
+                  コメント件数：<%= @book.book_comments.count %>
+                </p>
+              </td>
+              <td>
                 <% if @book.user.id == current_user.id %>
                   <p><%= link_to edit_book_path(@book.id), class:"btn btn-sm btn-success" do %>
                   Edit
@@ -58,6 +63,20 @@
             </tr>
           </tbody>
         </table>
+      </div>
+      <div class="comments">
+        <% @book.book_comments.each do |book_comment| %>
+          <%= attachment_image_tag @book.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+          <%= book_comment.user.name %>
+          <%= book_comment.created_at.strftime('%Y/%m/%d') %>
+          <%= book_comment.comment %>
+        <% end %>
+      </div>
+      <div class="new-comment">
+        <%= form_with(model:[@book, @book_comment], local:true) do |f| %>
+          <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
+          <%= f.submit "送信" %>
+        <% end %>
       </div>
     </div>
   </div>
