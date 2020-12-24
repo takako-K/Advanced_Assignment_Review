@@ -22,6 +22,12 @@
             <td><%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %></td>
             <td><%= user.name %></td>
             <td>
+              <%= "フォロー数： #{user.follower.count}" %>
+            </td>
+            <td>
+              <%= "フォロワー数： #{user.followed.count}" %>
+            </td>
+            <td>
               <% if current_user.following?(user) %>
                 <%= link_to 'フォロー外す', unfollow_path(user.id), method: :post %>
               <% else %>

@@ -11,6 +11,14 @@
                 <th>introduction</th>
                 <th><%= user.introduction %></th>
               </tr>
+              <tr>
+                <th>follows</th>
+                <th><%= user.follower.count %></th>
+              </tr>
+              <tr>
+                <th>followers</th>
+                <th><%= user.followed.count %></th>
+              </tr>
             </tbody>
           </table>
               <p><%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block" do %>
