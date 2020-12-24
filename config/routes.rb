@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
 
-  resources :users
+  resources :users do
+    member do
+      get 'follow_users' => 'users#follow_users'
+      get 'follower_users' => 'users#follower_users'
+    end
+  end
+
   resources :books do
     resource :favorites, only: [:create, :destroy]
     resources :book_comments, only: [:create, :destroy]
@@ -13,7 +19,5 @@ Rails.application.routes.draw do
   # フォローフォロワー機能
   post 'create/:id' => 'relationships#create', as: 'follow'
   post 'destroy/:id' => 'relationships#destroy', as: 'unfollow'
-  get 'follow_users' => 'users#follow_users'
-  get 'follower_users' => 'users#follower_users'
 
 end
