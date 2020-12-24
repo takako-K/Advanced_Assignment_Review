@@ -10,4 +10,8 @@ Rails.application.routes.draw do
     resources :book_comments, only: [:create, :destroy]
   end
 
+  # フォローフォロワー機能
+  post 'create/:id' => 'relationships#create', as: 'follow'
+  post 'destroy/:id' => 'relationships#destroy', as: 'unfollow'
+
 end
