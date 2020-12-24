@@ -13,5 +13,7 @@ Rails.application.routes.draw do
   # フォローフォロワー機能
   post 'create/:id' => 'relationships#create', as: 'follow'
   post 'destroy/:id' => 'relationships#destroy', as: 'unfollow'
+  get 'follow_users' => 'users#follow_users'
+  get 'follower_users' => 'users#follower_users'
 
 end
