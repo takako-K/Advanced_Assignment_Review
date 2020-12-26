@@ -21,6 +21,6 @@ Rails.application.routes.draw do
   post 'destroy/:id' => 'relationships#destroy', as: 'unfollow'
 
   # 検索機能
-  get 'search/search'
+  get '/search' => 'search#search'
 
 end
