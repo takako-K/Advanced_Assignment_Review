@@ -22,5 +22,4 @@ Rails.application.routes.draw do
 
   # 検索機能
   get '/search' => 'search#search'
-
 end
