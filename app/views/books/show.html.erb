@@ -54,23 +54,10 @@
           </tbody>
         </table>
         <div class="comments">
-        <% @book.book_comments.each do |book_comment| %>
-        　<p>
-            <%= attachment_image_tag book_comment.user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-            <%= book_comment.created_at.strftime('%Y/%m/%d') %>
-            <%= book_comment.comment %>
-            <% if book_comment.user == current_user %>
-              <%= link_to book_book_comment_path(book_comment.book, book_comment), method: :delete, class:"btn btn-sm btn-danger", "data-confirm" => "Are you sure?" do %>
-              Destroy
-              <% end %>
-            <% end %>
-          </p>
-            <%= link_to book_comment.user.name, user_path(book_comment.user.id) %>
-        <% end %>
+          <%= render 'book_comments/comments', book: @book %>
         </div>
-        <br>
         <div class="new-comment">
-        <%= form_with(model:[@book, @book_comment], local:true) do |f| %>
+        <%= form_with(model:[@book, @book_comment], remote:true) do |f| %>
           <%= f.text_area :comment, rows: '6', cols: '80', placeholder: "コメントをここに" %>
           <%= f.submit "送信" %>
         <% end %>
